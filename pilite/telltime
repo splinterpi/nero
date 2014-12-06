@@ -1,0 +1,9 @@
+#!/bin/bash
+
+PATH=$PATH:/root/gl/serial
+
+date +"%H:%M" | pilite.bin
+sleep 4;
+date +"%H:%M" | pilite.bin
+sleep 4;
+date +"%H:%M" | pilite.bin

@@ -1,0 +1,120 @@
+#!/usr/bin/python -u
+# ------------------------------------------------------------------------------
+# 17/09/2013 - P Friel.
+# ------------------------------------------------------------------------------
+# */20 * * * * /home/frielp/mr >/dev/tcp/raspi/20240
+# ------------------------------------------------------------------------------
+
+import urllib, time, sys, os, re, subprocess
+from bs4  import BeautifulSoup
+from time import gmtime, strftime
+
+# ------------------------------------------------------------------------------
+
+spacer  = " " * 5
+leader  = "#" * 3 + "  "
+trailer = "  " + "-" * 3
+
+# ------------------------------------------------------------------------------
+
+def main():
+    data = get_news()
+    refs = get_refs()
+
+    if data and parse_news(data, refs):
+        write_refs(refs)
+
+# ------------------------------------------------------------------------------
+
+def get_refs():
+    refs = {}
+
+    try:
+        f = open("mr.refs", "r")
+    except:
+        return refs
+
+    for href in f:
+        href = href.strip()
+        refs[href] = True
+
+    f.close()
+
+    return refs
+
+# ------------------------------------------------------------------------------
+
+def write_refs(refs):
+    f = open("mr.refs", "w")
+
+    for ref in refs.keys():
+        print >>f, ref
+
+    f.close()
+
+# ------------------------------------------------------------------------------
+
+def get_news():
+    urllib.urlcleanup()
+
+    try:
+        f = urllib.urlopen('http://news.bbc.co.uk')
+        data = f.read()
+        f.close
+
+        return data
+    except:
+        return False
+
+# ------------------------------------------------------------------------------
+
+def parse_news(data, refs):
+    soup = BeautifulSoup(data)
+    
+    r = soup.find("h3", attrs={"class" : "tab"}, text="Read")
+    p = r.find_next_siblings("div", attrs={"class" : "panel"})
+    
+    #print r
+    #print p[0]
+    
+    count = 1;
+    out   = []
+     
+    for anchor in p[0].find_all('a', attrs={"class" : "story"}): 
+        href = anchor['href']
+        if href in refs: continue
+    
+        refs[href] = True
+    
+        for text in anchor.stripped_strings:
+           if re.match("^\d+:", text): continue
+           text = text.encode('ascii', 'ignore')
+           line = "%d. %s" % (count, text)
+           out.append(line)
+           count += 1
+
+    if not out:
+        return False
+
+    print leader
+
+    for line in out:
+        print line
+        print spacer
+
+    print spacer
+    print leader
+
+    for line in out:
+        print line
+        print spacer
+
+    print trailer
+
+    return True
+
+# ------------------------------------------------------------------------------
+
+main()
+
+# ------------------------------------------------------------------------------
