@@ -1,0 +1,33 @@
+# .gitconfig
+
+[alias]
+    a      = add
+    b      = branch
+    cam    = commit -a -m
+    cm     = cmmit -m
+    c      = config
+    ci     = commit
+    cl     = config -l
+    dc     = diff --cached
+    dcs    = diff --cached --stat
+    d      = diff
+    ds     = diff --stat
+    l      = log --graph --pretty='format:%h -%Cred%ad%Creset - %Cgreen%an%reset %s' --date=short
+    sba    = show-branch -a
+    sb     = show-branch
+    s      = status --short
+    st     = status
+
+[core]
+    # excludesfile = ~/.git_global_exclude
+    pager          = less -imSQFR
+
+[diff]
+    mnemonicprefex = true
+    
+[color]
+    # diff   = auto
+    # status = auto
+    ui       = auto
+    
+    
