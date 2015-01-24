@@ -4,10 +4,10 @@ CREATE TABLE BANK_ACCOUNT (
    BALANCE INTEGER NOT NULL,
    PRIMARY KEY (ACCOUNT_ID));
 
-PARTITION TABLE BANK_ACCOUNT ON COLUMN ACCOUNT_ID;
+-- PARTITION TABLE BANK_ACCOUNT ON COLUMN ACCOUNT_ID;
    
-CREATE PROCEDURE FROM CLASS UpdateBalance;
+-- CREATE PROCEDURE FROM CLASS UpdateBalance;
  
- --- Partition declarations for the Stored Procedures:
+ -- Partition declarations for the Stored Procedures:
  -- PARTITION PROCEDURE <ProcedureName> ON TABLE <TABLE NAME> COLUMN <Partitioning Column>;
  
