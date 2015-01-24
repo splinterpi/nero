@@ -8,7 +8,8 @@
            <procedure class="com.splinterpi.voltdb.UpdateBalance"/>
        </procedures>
        <partitions>
-           <partition table="BANK_ACCOUNT" column="ACCOUNT_ID" /> 
+           <partition table="BANK_ACCOUNT" column="ACCOUNT_ID" />
+           <partition table="CUSTOMERS" column="CUSTOMER_ID" /> 
        </partitions>
   </database>
 </project>
