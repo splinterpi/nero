@@ -1,0 +1,201 @@
+CUSTOMER_ID,NAME,ADDRESS,ACCOUNT_ID
+1,Walter Stephens,2200 Paget Street,1
+2,Chris Brown,1423 Kinsman Court,2
+3,Gloria Howard,099 Oriole Trail,3
+4,Bobby Webb,115 Elka Alley,4
+5,George Berry,60 Walton Terrace,5
+6,Anne Bryant,6888 Anniversary Alley,6
+7,Bruce Wheeler,97894 Prairieview Terrace,7
+8,Ralph Duncan,880 Twin Pines Road,8
+9,Irene Parker,1 Lawn Drive,9
+10,Dennis Elliott,932 Maywood Way,10
+11,Wayne Cunningham,1 Dwight Pass,11
+12,Paul Alvarez,821 Pawling Park,12
+13,Michael Grant,6832 Memorial Court,13
+14,Bobby Bailey,431 Talmadge Plaza,14
+15,Michael Ferguson,2 Bunting Terrace,15
+16,Harold Hill,301 Pierstorff Pass,16
+17,Judith Mason,5 Surrey Road,17
+18,Samuel Mason,8591 Algoma Crossing,18
+19,Mildred Hayes,97390 Sundown Pass,19
+20,Jennifer Lawson,827 Vernon Park,20
+21,Chris Morris,24 Montana Street,21
+22,Eugene Marshall,905 Maryland Crossing,22
+23,Amy Griffin,245 Fallview Terrace,23
+24,Kimberly Garza,757 Sullivan Plaza,24
+25,Tammy King,194 Northwestern Crossing,25
+26,Tina Cunningham,97 6th Pass,26
+27,Stephanie Fisher,2482 Schlimgen Street,27
+28,Martin Webb,5 Crescent Oaks Circle,28
+29,Aaron Duncan,18578 Riverside Point,29
+30,Margaret Gordon,7 Northwestern Way,30
+31,Russell Montgomery,1446 Luster Crossing,31
+32,Carol Boyd,997 La Follette Road,32
+33,Kevin Edwards,50603 Haas Plaza,33
+34,Terry Kelley,0 Mitchell Hill,34
+35,Juan Davis,1 Milwaukee Park,35
+36,Jane Gardner,87 Dawn Park,36
+37,David Bradley,0747 Corscot Street,37
+38,Annie Coleman,4725 Cascade Street,38
+39,Jack Thompson,9 Fieldstone Park,39
+40,Julia Medina,12231 Ridgeway Place,40
+41,John Brown,17175 Northport Crossing,41
+42,Judy King,37 Pleasure Street,42
+43,Tina Gomez,7205 Comanche Lane,43
+44,Susan Long,0 Victoria Park,44
+45,Doris Jones,845 Lakeland Street,45
+46,Michelle Vasquez,5 Bartelt Drive,46
+47,Marilyn Webb,31 Mendota Plaza,47
+48,Katherine Jackson,747 Arkansas Road,48
+49,Victor Watson,029 Fairview Lane,49
+50,Ashley Bennett,440 American Ash Lane,50
+51,Harry Perry,706 Monterey Road,51
+52,Cheryl Berry,89596 Gulseth Plaza,52
+53,Justin Collins,841 Lakeland Lane,53
+54,Walter Gilbert,7 Gulseth Pass,54
+55,Brandon Ferguson,62597 Corben Point,55
+56,Joseph Cox,341 Becker Avenue,56
+57,Heather Bradley,73173 Hudson Point,57
+58,Philip Holmes,3033 Grayhawk Road,58
+59,Jimmy Gordon,60 Orin Lane,59
+60,Nancy Williams,1 Forster Crossing,60
+61,Christina Johnson,4 Graedel Center,61
+62,Stephen Baker,29571 Gateway Point,62
+63,Sandra Harvey,266 Dahle Road,63
+64,Joyce Duncan,30 Longview Street,64
+65,Joyce Butler,425 Gulseth Hill,65
+66,Chris Robinson,814 Charing Cross Road,66
+67,Richard Flores,819 4th Circle,67
+68,Kimberly Wallace,4 Northfield Plaza,68
+69,Benjamin Schmidt,880 John Wall Drive,69
+70,Roy Allen,6388 Monterey Trail,70
+71,Cheryl Fisher,6209 Morrow Road,71
+72,Diane Matthews,68 Annamark Street,72
+73,Christine Johnston,361 Cardinal Court,73
+74,Jennifer Nelson,082 Bultman Plaza,74
+75,Sean Richardson,2935 6th Center,75
+76,Laura Holmes,3100 Maple Wood Crossing,76
+77,Roger Black,3083 Farragut Plaza,77
+78,Robert Burke,95919 Dixon Road,78
+79,Karen Collins,232 Corscot Center,79
+80,Keith Gilbert,23721 3rd Park,80
+81,Timothy King,8726 Knutson Drive,81
+82,Jason Rodriguez,7441 Anzinger Drive,82
+83,Emily Kim,51 Truax Circle,83
+84,Frances Hunter,6554 Sachs Circle,84
+85,Howard Daniels,131 Vahlen Street,85
+86,Katherine Thompson,54748 2nd Hill,86
+87,John Jenkins,0378 Briar Crest Avenue,87
+88,Walter Kelly,0691 Dakota Pass,88
+89,Jonathan Marshall,111 Express Pass,89
+90,Benjamin Jones,84180 Oak Trail,90
+91,Douglas Garrett,35759 Florence Junction,91
+92,Julie Wallace,099 Bowman Center,92
+93,Chris Harris,387 Dapin Point,93
+94,Amy Ross,09 Myrtle Street,94
+95,Barbara Gordon,48 Bellgrove Avenue,95
+96,Jeffrey Fowler,0831 Carpenter Road,96
+97,Louise Hayes,92282 Acker Terrace,97
+98,Gloria Kelley,126 Kensington Circle,98
+99,Deborah Frazier,2291 Prairie Rose Street,99
+100,Anthony Bishop,28438 Del Sol Lane,100
+101,Heather Knight,6 Commercial Alley,101
+102,Russell Cooper,1 Rieder Road,102
+103,Alice Cox,9 Brown Road,103
+104,Samuel Moreno,22 Twin Pines Parkway,104
+105,Daniel Gilbert,9789 Bluestem Plaza,105
+106,Christine Ross,860 Macpherson Hill,106
+107,Ernest Fowler,5 Beilfuss Street,107
+108,Adam Olson,34584 Paget Road,108
+109,Kenneth Reyes,153 3rd Place,109
+110,Alan Brooks,977 Fuller Plaza,110
+111,Christine Gonzalez,104 West Street,111
+112,Edward Mason,3 Blue Bill Park Alley,112
+113,Timothy Grant,037 Lighthouse Bay Hill,113
+114,Pamela Burke,136 Gina Point,114
+115,Pamela Martin,7 North Way,115
+116,Phyllis Hudson,432 Anthes Alley,116
+117,Chris Martinez,2548 Canary Hill,117
+118,Albert Hawkins,99563 Ridgeview Hill,118
+119,Jimmy Lee,3 Badeau Circle,119
+120,Raymond Diaz,8850 Sutteridge Way,120
+121,Stephanie Bennett,18196 Morrow Road,121
+122,Christine Watkins,55804 Prentice Drive,122
+123,Theresa Stephens,8738 Judy Point,123
+124,Catherine Hunter,31350 Becker Way,124
+125,Carlos Bishop,297 Northwestern Park,125
+126,Larry Stewart,717 Roth Alley,126
+127,Tammy Garcia,38 Wayridge Place,127
+128,Steven Carroll,420 Shelley Road,128
+129,Elizabeth Rose,22 Haas Avenue,129
+130,Bruce Lee,07 Lotheville Court,130
+131,Harry Gonzales,43 Goodland Park,131
+132,Joseph Morrison,7891 Raven Crossing,132
+133,Justin Hamilton,24 Eliot Way,133
+134,Donna Tucker,1 Carpenter Terrace,134
+135,Justin Nelson,779 3rd Terrace,135
+136,Doris Little,57864 Michigan Park,136
+137,Jeffrey Black,69123 Mosinee Crossing,137
+138,Martha Owens,85 Duke Street,138
+139,Anne Crawford,81 Di Loreto Point,139
+140,Annie Burke,7 Anzinger Center,140
+141,Judith Washington,7 Kipling Hill,141
+142,Jonathan Gonzales,99 Gale Parkway,142
+143,Stephen Sanchez,5225 Di Loreto Circle,143
+144,Betty King,59 Graedel Way,144
+145,Annie Cooper,31 Stang Terrace,145
+146,Robert White,11 Crowley Alley,146
+147,Elizabeth Berry,59 Straubel Terrace,147
+148,Angela Oliver,76125 Arapahoe Point,148
+149,Phyllis Hughes,276 Sutherland Way,149
+150,Antonio White,9365 Fordem Court,150
+151,Mildred Ruiz,5 Schiller Street,151
+152,Samuel Lee,59699 Lukken Center,152
+153,Johnny Collins,4 Oxford Point,153
+154,Steven Peters,18 Crescent Oaks Alley,154
+155,John Morgan,71 North Hill,155
+156,Justin Butler,17363 Birchwood Center,156
+157,Emily Ruiz,9 Lukken Court,157
+158,Douglas Barnes,6 Glendale Court,158
+159,Alice Patterson,52 Bobwhite Pass,159
+160,Tina Holmes,58726 Hoepker Park,160
+161,Ruby Phillips,9 4th Junction,161
+162,Linda Butler,9 Vidon Trail,162
+163,James Robinson,16730 Erie Plaza,163
+164,Benjamin Cole,2 Florence Hill,164
+165,Daniel Kennedy,3 Barnett Center,165
+166,Denise Stewart,7284 Novick Crossing,166
+167,Karen Carr,650 Sommers Lane,167
+168,Kathy Thompson,7366 Farwell Drive,168
+169,Ann Lawrence,71 Starling Hill,169
+170,Lawrence Peterson,78 Green Ridge Trail,170
+171,Henry Smith,02783 Northport Terrace,171
+172,Clarence Snyder,2 Cordelia Hill,172
+173,Jeffrey Collins,4678 Anniversary Street,173
+174,Rose James,56171 Green Ridge Hill,174
+175,Nicholas Green,1 Macpherson Way,175
+176,Annie Thompson,8800 Sheridan Hill,176
+177,Louise Riley,3 Marcy Alley,177
+178,Jacqueline Olson,558 International Circle,178
+179,Ronald Stewart,56708 Elka Terrace,179
+180,Margaret Burke,65 Sunfield Trail,180
+181,George Dunn,60 Cardinal Street,181
+182,Christopher Alexander,6 Darwin Avenue,182
+183,Eugene Arnold,7 Chinook Junction,183
+184,Larry Carter,089 Acker Plaza,184
+185,Charles Smith,447 Prairie Rose Avenue,185
+186,Jimmy Cook,0169 Bartelt Park,186
+187,Tina Berry,2 Talisman Lane,187
+188,Lois Long,7 Fair Oaks Way,188
+189,Randy Morris,0523 Golf View Alley,189
+190,Paula Arnold,1 Shelley Point,190
+191,Carol Flores,613 Sundown Terrace,191
+192,Paula Green,5 Hermina Parkway,192
+193,Bonnie George,107 Springs Street,193
+194,Walter Lane,23254 Delladonna Point,194
+195,Matthew Hart,0 Moland Junction,195
+196,David Mitchell,9 Northfield Point,196
+197,Frances Olson,16573 Cardinal Trail,197
+198,Victor Perry,67 Derek Circle,198
+199,Thomas Fernandez,0594 Heffernan Hill,199
+200,Andrew Webb,568 Spohn Parkway,200
