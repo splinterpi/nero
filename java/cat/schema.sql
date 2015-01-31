@@ -26,9 +26,6 @@ PARTITION TABLE BANK_ACCOUNT ON COLUMN ACCOUNT_ID;
 
 PARTITION TABLE CUSTOMERS ON COLUMN CUSTOMER_ID;
 
-   
 CREATE PROCEDURE FROM CLASS com.splinterpi.voltdb.UpdateBalance;
  
- -- Partition declarations for the Stored Procedures:
- -- PARTITION PROCEDURE <ProcedureName> ON TABLE <TABLE NAME> COLUMN <Partitioning Column>;
  
