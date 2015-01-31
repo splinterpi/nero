@@ -78,8 +78,8 @@
                             <target>
                                 <java classname="org.voltdb.compiler.VoltCompiler" fork="yes" failonerror="true">
                                     <jvmarg value="-Dlog4j.configuration=file:src/test/resources/log4j.properties" />
-                                    <arg value="project.xml" />
                                     <arg value="${project.build.directory}/${project.build.finalName}-catalog.jar" />
+                                    <arg value="schema.sql" />
                                     <classpath refid="maven.compile.classpath" />
                                     <assertions>
                                         <disable />
