@@ -69,6 +69,10 @@ def load_config(path):
         "enable_accelerometer": get("sensors", "enable_accelerometer", False, bool),
         "enable_gyroscope": get("sensors", "enable_gyroscope", False, bool),
 
+        # Light / LED matrix
+        "enable_light": get("light", "enable_light", True, bool),
+        "light_topic": get("light", "light_topic", "sensehat/light"),
+
         # Temperature correction
         "enable_temperature_correction": get("temperature", "enable_temperature_correction", False, bool),
         "temp_correction_factor": get("temperature", "temp_correction_factor", 0.8, float),
@@ -85,6 +89,8 @@ def load_config(path):
 config = load_config(CONFIG_FILE)
 sense = SenseHat()
 running = True
+current_rgb = (255, 255, 255)   # default white
+current_brightness = 1.0        # 0–1 float
 
 # ------------------ CPU Temperature ------------------
 def get_cpu_temp():
@@ -126,6 +132,23 @@ def read_sensors():
 
     data["timestamp"] = datetime.datetime.utcnow().isoformat() + "Z"
     return data
+
+# ------------------ LED Matrix Control ------------------
+def set_led_matrix(rgb=None, brightness=1.0, clear=False):
+    """
+    rgb: tuple (r, g, b)
+    brightness: 0.0–1.0
+    clear: True clears matrix
+    """
+    if clear:
+        sense.clear()
+        return
+
+    if rgb:
+        r = int(rgb[0] * brightness)
+        g = int(rgb[1] * brightness)
+        b = int(rgb[2] * brightness)
+        sense.clear(r, g, b)
 
 # ------------------ Home Assistant Discovery ------------------
 def ha_sensor_config(uid, name, device_class, unit, state_class, sensor_key):
@@ -177,6 +200,31 @@ def publish_discovery(client):
         topic = f"{config['ha_prefix']}/sensor/{uid}/config"
         client.publish(topic,json.dumps(payload),retain=True)
         logger.info(f"HA discovery published: {topic}")
+
+    # ---- Light Entity ----
+    if config["enable_light"]:
+        uid = "sensehat_matrix"
+        topic = f"{config['ha_prefix']}/light/{uid}/config"
+        payload = {
+            "name": "SenseHAT LED Matrix",
+            "unique_id": uid,
+            "schema": "json",
+            "command_topic": f"{config['light_topic']}/set",
+            "state_topic": f"{config['light_topic']}/state",
+            "brightness": True,
+            "color_mode": True,
+            "supported_color_modes": ["rgb"],
+            "effect": True,
+            "effect_list": ["solid", "flash"],
+            "device": {
+                "identifiers": ["sensehat_001"],
+                "manufacturer": "Raspberry Pi Foundation",
+                "model": "Sense HAT",
+                "name": "Sense HAT"
+            }
+        }
+        client.publish(topic, json.dumps(payload), retain=True)
+        logger.info(f"HA light discovery published: {topic}")
 
 # ------------------ Publish Readings ------------------
 def publish_readings(client):
@@ -232,15 +280,85 @@ def main():
             c.subscribe(config["ota_reload_topic"])
             logger.info(f"Subscribed to OTA topic: {config['ota_reload_topic']}")
 
+        if config["enable_light"]:
+            c.subscribe(f"{config['light_topic']}/set")
+            logger.info(f"Subscribed to Light topic: {config['light_topic']}/set")
+
     def on_message(c, userdata, msg):
+        global current_rgb, current_brightness
+        logger.info(f"Message Received: {msg.topic}")
         if config["enable_ota_reload"] and msg.topic == config["ota_reload_topic"]:
             if msg.payload.decode().strip().lower() == "reload":
                 reload_config(c)
+        # ---- Light control ----
+        if config["enable_light"] and msg.topic == f"{config['light_topic']}/set":
+            try:
+                payload = json.loads(msg.payload.decode())
+            except:
+                logger.error("Bad JSON light payload")
+                return
+            logger.info(f"Light Payload: {payload}")
+            effect = payload.get("effect", "solid")
+            state = payload.get("state", "").lower()
+            
+            if "brightness" in payload:
+                current_brightness = payload["brightness"] / 255.0
+
+            if "color" in payload:
+                r, g, b = payload["color"]["r"], payload["color"]["g"], payload["color"]["b"]
+                current_rgb = (r, g, b)
+                set_led_matrix(rgb=current_rgb, brightness=current_brightness)
+                client.publish(f"{config['light_topic']}/state",
+                               json.dumps({
+                                   "state": "ON",
+                                   "brightness": int(current_brightness * 255),
+                                   "color_mode": "rgb",
+                                   "color": {"r" :r, "g": g, "b": b},
+                                   "effect": "solid"
+                                }),
+                               retain=True
+                )
+            elif "pixels" in payload:
+                # pixels must be 64 rgb disctionaries, e.g. [{"r":255,"g":0,"b":0},...]
+                pixels = payload.get("pixels")
+                pixel_tuples = [(p["r"], p["g"], p["b"]) for p in pixels]
+                try:
+                    sense.set_pixels([tuple(p) for p in pixel_tuples])
+                except:
+                    logger.error("Invalid pixels payload")
+
+                client.publish(f"{config['light_topic']}/state",
+                               json.dumps({
+                                   "state": "ON",
+                               }),
+                               retain=True
+                )
+                
+            if state == "on":
+                logger.info(f"State: ON current_rgb: {current_rgb}")
+                set_led_matrix(rgb=current_rgb, brightness=current_brightness)
+                r, g, b = current_rgb
+                client.publish(f"{config['light_topic']}/state",
+                               json.dumps({
+                                   "state": "ON",
+                                   "brightness": int(current_brightness * 255),
+                                   "color_mode": "rgb",
+                                   "color": {"r" :r, "g": g, "b": b},
+                                   "effect": "solid"
+                                }),
+                               retain=True
+                )
+
+            if state == "off":
+                set_led_matrix(clear=True)
+                client.publish(f"{config['light_topic']}/state", json.dumps({"state": "OFF"}), retain=True)
+                return
+
 
     client.on_connect = on_connect
     client.on_message = on_message
 
-    logger.info(f"Connecting to MQTT broker ip={config["mqtt_host"]} port={config["mqtt_port"]}")
+    logger.info(f"Connecting to MQTT broker ip={config['mqtt_host']} port={config['mqtt_port']}")
     client.connect(config["mqtt_host"],config["mqtt_port"],60)
     client.loop_start()
     publish_discovery(client)
